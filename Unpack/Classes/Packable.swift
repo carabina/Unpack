@@ -13,7 +13,7 @@ public protocol Packable: Encodable {
     
     func pack() throws -> Data
     
-    func json() throws -> JSON
+    func json() throws -> Any
 }
 
 public extension Packable {
@@ -31,13 +31,23 @@ public extension Packable {
         return try enc.encode(self)
     }
     
-    func json() throws -> JSON {
+    func json() throws -> Any {
         let data = try pack()
-        let object = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-        guard let jsonObject = object as? JSON else {
-            throw UnpackableError.wrongType
-        }
-        return jsonObject
+        return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
     }
+}
 
+extension Array: Packable where Element: Packable {
+    
+    public static var encoder: JSONEncoder { return Element.encoder }
+    
+    public func pack() throws -> Data {
+        let enc = Element.encoder
+        return try enc.encode(self)
+    }
+    
+    public func json() throws -> Any {
+        let data = try pack()
+        return try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+    }
 }
