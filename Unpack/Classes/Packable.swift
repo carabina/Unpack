@@ -16,7 +16,7 @@ public protocol Packable: Encodable {
     func json() throws -> JSON
 }
 
-extension Packable {
+public extension Packable {
     
     static var encoder: JSONEncoder {
         let enc = JSONEncoder()
