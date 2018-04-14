@@ -1,0 +1,6 @@
+framework module Unpack {
+  umbrella header "Unpack-umbrella.h"
+
+  export *
+  module * { export * }
+}

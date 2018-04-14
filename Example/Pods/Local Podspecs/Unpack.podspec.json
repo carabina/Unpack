@@ -1,0 +1,22 @@
+{
+  "name": "Unpack",
+  "version": "0.1.0",
+  "summary": "A short description of Unpack.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/oreninit/Unpack",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "oreninit": "oreninit@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/oreninit/Unpack.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Unpack/Classes/**/*"
+}

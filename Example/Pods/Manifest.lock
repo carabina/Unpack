@@ -1,0 +1,16 @@
+PODS:
+  - Unpack (0.1.0)
+
+DEPENDENCIES:
+  - Unpack (from `../`)
+
+EXTERNAL SOURCES:
+  Unpack:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Unpack: 0caaebdd5ea945ea151328b58ff4d887943e1265
+
+PODFILE CHECKSUM: 11eb294ebc6fba757810d34bbf77ba70d5a08c99
+
+COCOAPODS: 1.2.0
