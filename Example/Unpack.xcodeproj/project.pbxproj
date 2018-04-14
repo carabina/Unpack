@@ -9,18 +9,22 @@
 /* Begin PBXBuildFile section */
 		52A1B7DD573C0E283E9DEC2B /* Pods_Unpack_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FB1FD567DE698B1C1E5CCB /* Pods_Unpack_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		EA6B2DDB2082C8B400080A3C /* PackableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B2DDA2082C8B400080A3C /* PackableTests.swift */; };
+		EA6B2DDD2082C8C000080A3C /* MockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B2DDC2082C8C000080A3C /* MockStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B1C0D93592A547A22E7879D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		4D119A7BBE19E33893791F83 /* Unpack.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Unpack.podspec; path = ../Unpack.podspec; sourceTree = "<group>"; };
+		2B1C0D93592A547A22E7879D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		4D119A7BBE19E33893791F83 /* Unpack.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Unpack.podspec; path = ../Unpack.podspec; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Unpack_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unpack_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		B7D03AA3C1DE5112BE28E700 /* Pods-Unpack_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unpack_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unpack_Tests/Pods-Unpack_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9FB1FD567DE698B1C1E5CCB /* Pods_Unpack_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unpack_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0D24DB23AFF8E623351ECFA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C0D24DB23AFF8E623351ECFA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D21F7FC8D615A2002017C503 /* Pods-Unpack_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unpack_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unpack_Tests/Pods-Unpack_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EA6B2DDA2082C8B400080A3C /* PackableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackableTests.swift; sourceTree = "<group>"; };
+		EA6B2DDC2082C8C000080A3C /* MockStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				EA6B2DDC2082C8C000080A3C /* MockStore.swift */,
+				EA6B2DDA2082C8B400080A3C /* PackableTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -131,10 +137,6 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -223,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6B2DDB2082C8B400080A3C /* PackableTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				EA6B2DDD2082C8C000080A3C /* MockStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
