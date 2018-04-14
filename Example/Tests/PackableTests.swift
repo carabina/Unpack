@@ -7,29 +7,34 @@
 //
 
 import XCTest
+@testable import Unpack
 
 class PackableTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testPackObjectToData() {
+        let object = MockStore.getObject()
+        let data = try? object.pack()
+        XCTAssertNotNil(data, "Object should be successfully packed to data")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testPackObjectToJSON() {
+        let object = MockStore.getObject()
+        let json = try? object.json()
+        XCTAssertNotNil(json, "Object should be successfully packed to JSON")
+        XCTAssert(json is JSON)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPackArrayToData() {
+        let array = MockStore.getObjectArray()
+        let data = try? array.pack()
+        XCTAssertNotNil(data, "Array should be successfully packed to data")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testPackArrayToJSON() {
+        let array = MockStore.getObjectArray()
+        let json = try? array.json()
+        XCTAssertNotNil(json, "Array should be successfully packed to JSON")
+        XCTAssert(json is [JSON])
     }
-    
+
 }
