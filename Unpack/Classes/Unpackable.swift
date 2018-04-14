@@ -13,7 +13,7 @@ public protocol Unpackable: Decodable {
     
     static func unpack(data: Data) throws -> Self
     
-    static func unpack(json: JSON) throws -> Self
+    static func unpack(json: Any) throws -> Self
 }
 
 public extension Unpackable {
@@ -31,8 +31,34 @@ public extension Unpackable {
         return try dec.decode(Self.self, from: data)
     }
     
-    static func unpack(json: JSON) throws -> Self {
+    static func unpack(json: Any) throws -> Self {
         let data = try JSONSerialization.data(withJSONObject: json, options: [])
         return try unpack(data: data)
     }
+}
+
+extension Array: Unpackable where Element: Unpackable {
+    
+    public static var decoder: JSONDecoder { return Element.decoder }
+    
+    public static func unpack(data: Data) throws -> [Element] {
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+        return try unpack(json: json)
+    }
+    
+    public static func unpack(json: Any) throws -> [Element] {
+        guard let array = json as? [Any] else {
+            throw UnpackableError.wrongType
+        }
+        
+        var elements: [Element] = []
+        
+        for e in array {
+            let instance = try Element.unpack(json: e)
+            elements.append(instance)
+        }
+        
+        return elements
+    }
+
 }
