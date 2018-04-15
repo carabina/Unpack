@@ -39,7 +39,7 @@ struct MockStore {
         return [getJSON()]
     }
     
-    static func getJSONData() -> Data {
+    static func getDataArray() -> Data {
         let array = getJSONArray()
         guard let data = try? JSONSerialization.data(withJSONObject: array, options: .prettyPrinted) else { return Data() }
         return data
