@@ -12,7 +12,10 @@ import Foundation
 struct MockStore {
     
     static func getObject() -> MockObject {
-        return MockObject()
+        return MockObject(value1: "This is a string value",
+                          value2: 2,
+                          value3: 3.14,
+                          value4: ["hello" : "world"])
     }
     
     static func getJSON() -> JSON {
@@ -20,9 +23,7 @@ struct MockStore {
             "value1" : "This is a string value",
             "value2" : 2,
             "value3" : 3.14,
-            "value4" : [
-                "hello" : "world"
-            ]
+            "value4" : ["hello" : "world"]
         ]
     }
     
@@ -47,8 +48,8 @@ struct MockStore {
 }
 
 struct MockObject: UnPacked {
-    let value1: String = "This is a string value"
-    let value2: Int = 2
-    let value3: Double = 3.14
-    let value4: [String : String] = ["hello" : "world"]
+    let value1: String// = "This is a string value"
+    let value2: Int// = 2
+    let value3: Double// = 3.14
+    let value4: [String : String]// = ["hello" : "world"]
 }

@@ -12,6 +12,7 @@
 		EA6B2DDB2082C8B400080A3C /* PackableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B2DDA2082C8B400080A3C /* PackableTests.swift */; };
 		EA6B2DDD2082C8C000080A3C /* MockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B2DDC2082C8C000080A3C /* MockStore.swift */; };
 		EA6B2DE12082CCAF00080A3C /* UnpackableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B2DE02082CCAF00080A3C /* UnpackableTests.swift */; };
+		EA6FC5342085D211008FFC85 /* UnpackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6FC5332085D211008FFC85 /* UnpackerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		EA6B2DDA2082C8B400080A3C /* PackableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackableTests.swift; sourceTree = "<group>"; };
 		EA6B2DDC2082C8C000080A3C /* MockStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStore.swift; sourceTree = "<group>"; };
 		EA6B2DE02082CCAF00080A3C /* UnpackableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpackableTests.swift; sourceTree = "<group>"; };
+		EA6FC5332085D211008FFC85 /* UnpackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpackerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				EA6B2DDC2082C8C000080A3C /* MockStore.swift */,
 				EA6B2DDA2082C8B400080A3C /* PackableTests.swift */,
 				EA6B2DE02082CCAF00080A3C /* UnpackableTests.swift */,
+				EA6FC5332085D211008FFC85 /* UnpackerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -230,6 +233,7 @@
 			files = (
 				EA6B2DDB2082C8B400080A3C /* PackableTests.swift in Sources */,
 				EA6B2DE12082CCAF00080A3C /* UnpackableTests.swift in Sources */,
+				EA6FC5342085D211008FFC85 /* UnpackerTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				EA6B2DDD2082C8C000080A3C /* MockStore.swift in Sources */,
 			);
