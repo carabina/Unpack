@@ -1,42 +1,17 @@
-#
-# Be sure to run `pod lib lint Unpack.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
-  s.name             = 'Unpack'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Unpack.'
+s.name             = 'Unpack'
+s.version          = '0.1.0'
+s.summary          = 'A library to simplify the process of parsing Data/JSON to objects and vice versa'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/oreninit/Unpack'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'oreninit' => 'oreninit@gmail.com' }
-  s.source           = { :git => 'https://github.com/oreninit/Unpack.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'Unpack/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Unpack' => ['Unpack/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+s.description      = <<-DESC
+Unpack allows easy conversion between raw Data and JSON objects and your own Class and Struct types. It consists of a simple API, but allows further control over the process.
+DESC
+s.homepage         = 'https://github.com/oreninit/Unpack'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'Oreninit' => 'oreninit@gmail.com' }
+s.source           = { :git => 'https://github.com/oreninit/Unpack.git', :tag => s.version.to_s }
+s.social_media_url = 'https://twitter.com/oreninit'
+s.ios.deployment_target = '9.3'
+s.source_files = 'Reuse/Classes/**/*'
+s.frameworks = 'Foundation'
 end
