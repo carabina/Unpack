@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct Unpacker<T: Unpackable> {
+public struct Unpacker<T: Unpackable> {
     
     private(set) public var value: T?
     private(set) public var error: Error?
     private(set) public var decoder: JSONDecoder
     
-    init(decoder: JSONDecoder = T.decoder) {
+    public init(decoder: JSONDecoder = T.decoder) {
         self.decoder = decoder
     }
     
     @discardableResult
-    mutating func unpack<U>(package: Package<U>) throws -> T {
+    public mutating func unpack<U>(package: Package<U>) throws -> T {
         do {
             let val: T
             if let raw = package.rawValue as? Data {
@@ -36,7 +36,7 @@ struct Unpacker<T: Unpackable> {
     }
 
     @discardableResult
-    mutating func unpack(data: Data) throws -> T {
+    public mutating func unpack(data: Data) throws -> T {
         do {
             let val = try T.unpack(data: data)
             self.value = val
@@ -49,7 +49,7 @@ struct Unpacker<T: Unpackable> {
     }
     
     @discardableResult
-    mutating func unpack(json: Any) throws -> T {
+    public mutating func unpack(json: Any) throws -> T {
         do {
             let val = try T.unpack(json: json)
             self.value = val

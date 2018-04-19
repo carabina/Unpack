@@ -13,7 +13,6 @@ public enum UnpackableError: Error, RawRepresentable, CustomStringConvertible {
     case codable(Error)
     case custom(String)
 
-    
     // MARK: RawRepresentable
     public typealias RawValue = String
     

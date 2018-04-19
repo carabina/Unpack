@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct JSONUnpacker<T: Unpackable> {
+public struct JSONUnpacker<T: Unpackable> {
     
-    public let package: Package<JSON>
-    public let rawValue: JSON
+    public let package: Package<Any>
+    public let rawValue: Any
     private(set) public var value: T?
     private(set) public var error: Error?
     
-    init(_ type: Package<JSON>, decoder: JSONDecoder = T.decoder ) {
-        self.package = type
-        self.rawValue = type.rawValue
+    public init(_ value: Any, decoder: JSONDecoder = T.decoder ) {
+        self.package = .json(value)
+        self.rawValue = value
         self.attemptUnpacking()
     }
     

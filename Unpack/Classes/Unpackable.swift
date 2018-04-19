@@ -7,6 +7,14 @@
 
 import Foundation
 
+public func unpack<T: Unpackable>(data: Data) throws -> T {
+    return try T.unpack(data: data)
+}
+
+public func unpack<T: Unpackable>(json: Any) throws -> T {
+    return try T.unpack(json: json)
+}
+
 public protocol Unpackable: Decodable {
     
     static var decoder: JSONDecoder { get }

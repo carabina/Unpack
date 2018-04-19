@@ -3,21 +3,20 @@
 //  Unpack_Tests
 //
 //  Created by Oren F on 18/04/2018.
-//  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
 import Foundation
 
-struct DataUnpacker<T: Unpackable> {
+public struct DataUnpacker<T: Unpackable> {
     
     public let package: Package<Data>
     public let rawValue: Data
     private(set) public var value: T?
     private(set) public var error: Error?
     
-    init(_ type: Package<Data>, decoder: JSONDecoder = T.decoder ) {
-        self.package = type
-        self.rawValue = type.rawValue
+    public init(_ value: Data, decoder: JSONDecoder = T.decoder ) {
+        self.package = .data(value)
+        self.rawValue = value
         self.attemptUnpacking()
     }
     

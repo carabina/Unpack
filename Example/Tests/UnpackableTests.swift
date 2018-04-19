@@ -42,6 +42,19 @@ class UnpackableTests: XCTestCase {
         XCTAssertEqual(array?.count, 1)
         compare(object: object)
     }
+    
+    func testStaticDataUnpacking() {
+        let data = MockStore.getData()
+        let object: MockObject? = try? unpack(data: data)
+        compare(object: object)
+    }
+    
+    func testStaticJSONUnpacking() {
+        let json = MockStore.getJSONArray()
+        let objects: [MockObject]? = try? unpack(json: json)
+        XCTAssertEqual(objects?.count, 1)
+        compare(object: objects?.first)
+    }
 
     private func compare(object: MockObject?) {
         XCTAssertEqual(object?.value1, "This is a string value")

@@ -7,6 +7,14 @@
 
 import Foundation
 
+public func pack(_ object: Packable) throws -> Data {
+    return try object.pack()
+}
+
+public func json(_ object: Packable) throws -> Any {
+    return try object.json()
+}
+
 public protocol Packable: Encodable {
     
     static var encoder: JSONEncoder { get }
