@@ -12,8 +12,11 @@ public protocol Unpackable: Decodable {
     static var decoder: JSONDecoder { get }
     
     static func unpack(data: Data) throws -> Self
-    
+    static func unpack(data: Data, using decoder: JSONDecoder) throws -> Data
+
     static func unpack(json: Any) throws -> Self
+    static func unpack(json: Any, using decoder: JSONDecoder) throws -> Self
+    static func unpack(json: Any, using decoder: JSONDecoder, options: JSONSerialization.WritingOptions) throws -> Self
 }
 
 public extension Unpackable {
@@ -27,38 +30,23 @@ public extension Unpackable {
     }
     
     static func unpack(data: Data) throws -> Self {
-        let dec = decoder
-        return try dec.decode(Self.self, from: data)
+        return try unpack(data: data, using: Self.decoder)
+    }
+    
+    static func unpack(data: Data, using decoder: JSONDecoder) throws -> Self {
+        return try decoder.decode(Self.self, from: data)
     }
     
     static func unpack(json: Any) throws -> Self {
-        let data = try JSONSerialization.data(withJSONObject: json, options: [])
+        return try unpack(json: json, using: decoder)
+    }
+    
+    static func unpack(json: Any, using decoder: JSONDecoder) throws -> Self {
+        return try unpack(json: json, using: decoder, options: JSONSerialization.unpackWritingOptions)
+    }
+    
+    static func unpack(json: Any, using decoder: JSONDecoder, options: JSONSerialization.WritingOptions) throws -> Self {
+        let data = try JSONSerialization.data(withJSONObject: json, options: options)
         return try unpack(data: data)
     }
-}
-
-extension Array: Unpackable where Element: Unpackable {
-    
-    public static var decoder: JSONDecoder { return Element.decoder }
-    
-    public static func unpack(data: Data) throws -> [Element] {
-        let json = try JSONSerialization.jsonObject(with: data, options: [])
-        return try unpack(json: json)
-    }
-    
-    public static func unpack(json: Any) throws -> [Element] {
-        guard let array = json as? [Any] else {
-            throw UnpackableError.wrongType
-        }
-        
-        var elements: [Element] = []
-        
-        for e in array {
-            let instance = try Element.unpack(json: e)
-            elements.append(instance)
-        }
-        
-        return elements
-    }
-
 }
