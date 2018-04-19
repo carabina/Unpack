@@ -12,7 +12,7 @@ public protocol Unpackable: Decodable {
     static var decoder: JSONDecoder { get }
     
     static func unpack(data: Data) throws -> Self
-    static func unpack(data: Data, using decoder: JSONDecoder) throws -> Data
+    static func unpack(data: Data, using decoder: JSONDecoder) throws -> Self
 
     static func unpack(json: Any) throws -> Self
     static func unpack(json: Any, using decoder: JSONDecoder) throws -> Self

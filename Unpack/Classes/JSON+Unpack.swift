@@ -13,3 +13,10 @@ extension Dictionary where Key == String, Value == Any {
         return try T.unpack(json: self)
     }
 }
+
+extension Array where Element == JSON {
+    
+    public func unpack<T: Unpackable>() throws -> T {
+        return try T.unpack(json: self)
+    }
+}

@@ -12,19 +12,30 @@ extension Array: Unpackable where Element: Unpackable {
     public static var decoder: JSONDecoder { return Element.decoder }
     
     public static func unpack(data: Data) throws -> [Element] {
-        let json = try JSONSerialization.jsonObject(with: data, options: [])
-        return try unpack(json: json)
+        return try unpack(data: data, using: decoder)
+    }
+    
+    public static func unpack(data: Data, using decoder: JSONDecoder) throws -> [Element] {
+        return try decoder.decode([Element].self, from: data)
     }
     
     public static func unpack(json: Any) throws -> [Element] {
-        guard let array = json as? [Any] else {
+        return try unpack(json: json, using: decoder)
+    }
+    
+    public static func unpack(json: Any, using decoder: JSONDecoder) throws -> [Element] {
+        return try unpack(json: json, using: decoder, options: JSONSerialization.unpackWritingOptions)
+    }
+    
+    public static func unpack(json: Any, using decoder: JSONDecoder, options: JSONSerialization.WritingOptions) throws -> [Element] {
+        guard let elements = json as? [Any] else {
             throw UnpackableError.wrongType
         }
-        var elements: [Element] = []
-        for e in array {
-            let instance = try Element.unpack(json: e)
-            elements.append(instance)
+        var array: [Element] = []
+        for element in elements {
+            let instance = try Element.unpack(json: element, using: decoder, options: options)
+            array.append(instance)
         }
-        return elements
+        return array
     }
 }
