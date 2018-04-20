@@ -12,6 +12,6 @@ s.author           = { 'Oreninit' => 'oreninit@gmail.com' }
 s.source           = { :git => 'https://github.com/oreninit/Unpack.git', :tag => s.version.to_s }
 s.social_media_url = 'https://twitter.com/oreninit'
 s.ios.deployment_target = '9.3'
-s.source_files = 'Reuse/Classes/**/*'
+s.source_files = 'Unpack/Classes/**/*'
 s.frameworks = 'Foundation'
 end
