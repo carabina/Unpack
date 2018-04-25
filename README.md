@@ -22,7 +22,7 @@ pod 'Unpack'
 
 ## Author
 
-oreninit, oreninit@gmail.com
+Oren Farhan
 
 ## License
 
