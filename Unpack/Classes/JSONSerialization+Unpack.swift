@@ -9,12 +9,12 @@ import Foundation
 
 extension JSONSerialization {
     
+    /// Default `Unpack` reading options
     public static var unpackReadingOptions: JSONSerialization.ReadingOptions {
-        return [.allowFragments,
-                .mutableContainers,
-                .mutableLeaves]
+        return [.allowFragments, .mutableContainers]
     }
     
+    /// Default `Unpack` writing options
     public static var unpackWritingOptions: JSONSerialization.WritingOptions {
         return [.prettyPrinted]
     }

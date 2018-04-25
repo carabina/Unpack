@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A struct capable of decoding an `Unpackable` object from a `Data`
 public struct DataUnpacker<T: Unpackable> {
     
     public let package: Package<Data>

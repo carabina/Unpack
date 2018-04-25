@@ -7,14 +7,17 @@
 
 import Foundation
 
+/// Global function for ease of converting `Data` to `Packable`
 public func unpack<T: Unpackable>(data: Data) throws -> T {
     return try T.unpack(data: data)
 }
 
+/// Global function for ease of converting `Any` (i.e JSON, [JSON]) to `Packable`
 public func unpack<T: Unpackable>(json: Any) throws -> T {
     return try T.unpack(json: json)
 }
 
+/// A protocol extending `Decodable`, allowing it to easily convert from `Data` or `JSON`
 public protocol Unpackable: Decodable {
     
     static var decoder: JSONDecoder { get }

@@ -7,14 +7,17 @@
 
 import Foundation
 
+/// Global function for ease of converting `Packable` to `Data`
 public func pack(_ object: Packable) throws -> Data {
     return try object.pack()
 }
 
+/// Global function for ease of converting `Packable` to `Any` (i.e JSON / [JSON])
 public func json(_ object: Packable) throws -> Any {
     return try object.json()
 }
 
+/// A protocol extending `Encodable`, allowing it to easily convert to `Data` or `JSON`
 public protocol Packable: Encodable {
     
     static var encoder: JSONEncoder { get }

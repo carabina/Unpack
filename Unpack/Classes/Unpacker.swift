@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A struct capable of decoding an `Unpackable` object from `Data` of `JSON`
 public struct Unpacker<T: Unpackable> {
     
     private(set) public var value: T?

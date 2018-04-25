@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A struct capable of decoding an `Unpackable` object from a `JSON`
 public struct JSONUnpacker<T: Unpackable> {
     
     public let package: Package<Any>

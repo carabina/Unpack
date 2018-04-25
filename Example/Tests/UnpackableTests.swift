@@ -55,6 +55,13 @@ class UnpackableTests: XCTestCase {
         XCTAssertEqual(objects?.count, 1)
         compare(object: objects?.first)
     }
+    
+    func testSimpleArrayFromJSONUnpacking() {
+        let json: [[String : Any]] = [["value" : "v1"], ["value" : "v2"], ["value" : "v3"]]
+        let array: [Simple]? = try? json.unpack()
+        XCTAssertNotNil(array)
+        XCTAssertEqual(array?.count, 3)
+    }
 
     private func compare(object: MockObject?) {
         XCTAssertEqual(object?.value1, "This is a string value")
@@ -63,4 +70,8 @@ class UnpackableTests: XCTestCase {
         XCTAssertEqual(object?.value4.keys.first, "hello")
         XCTAssertEqual(object?.value4.values.first, "world")
     }
+}
+
+private struct Simple: Unpackable {
+    let value: String
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A container for a value that is passed to an `Unpacker`
 public enum Package<T>: RawRepresentable {
     
     case data(T)

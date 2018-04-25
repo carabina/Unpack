@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// An error received on unsuccessful "unpacking"
 public enum UnpackableError: Error, RawRepresentable, CustomStringConvertible {
     
     case wrongType

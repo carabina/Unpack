@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Extension to allow arrays of `Packable` to have the same functionality as their elements
 extension Array: Packable where Element: Packable {
     
     public static var encoder: JSONEncoder { return Element.encoder }

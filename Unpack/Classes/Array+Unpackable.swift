@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Extension to allow arrays of `Unpackable` to have the same functionality as their elements
 extension Array: Unpackable where Element: Unpackable {
     
     public static var decoder: JSONDecoder { return Element.decoder }

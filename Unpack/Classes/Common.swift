@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// [Unpackable & Packable]
 public typealias UnPacked = Unpackable & Packable
+
+/// [String : Any]
 public typealias JSON = [String : Any]
 
