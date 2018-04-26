@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'Unpack'
-s.version          = '0.1.0'
+s.version          = '1.0.0'
 s.summary          = 'A library to simplify the process of parsing Data/JSON to objects and vice versa'
 
 s.description      = <<-DESC
